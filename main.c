@@ -1,5 +1,5 @@
-#include "inc/system.h"
+#include "src/system.h"
 void main()
 {
-    printf("This is main.");
+    c_printf("Hello world");
 }

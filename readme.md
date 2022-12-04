@@ -1,1 +1,1 @@
-![this is GSMB logo](https://github.com/saha-KUSHAL/GSMB/blob/main/files/GSMB_Logo.svg)
+![this is GSMB logo](https://github.com/saha-KUSHAL/GSMB/main/files/GSMB_Logo.svg)
