@@ -1,5 +1,5 @@
 #include "src/system.h"
 void main()
 {
-    c_printf("Hello world");
+    c_printf("Gitaram Student Management BUS\n");
 }
