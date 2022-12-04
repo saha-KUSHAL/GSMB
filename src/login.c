@@ -8,7 +8,7 @@ struct entered_data
 void create_login()
 {
     FILE *fp;
-    if(mtbool("files/user.bin"))
+    if(mt_file("files/user.bin"))
     {
         fp=fopen("/files/user.bin","w");
     }
@@ -16,8 +16,6 @@ void create_login()
         fp=fopen("/files/user.bin","a");
 
     }
-
-
 }
 
 enum state login()
@@ -28,7 +26,7 @@ enum state login()
     FILE *fp;
 
     fp = fopen("/files/user.bin", "r");
-    if (mtbool("files/user.bin"))//cheking if there is data or not;
+    if (mt_file("files/user.bin"))//cheking if there is data or not;
     {
         printf("\nNo Admin Found.");
         printf("\nCreate an admin:");

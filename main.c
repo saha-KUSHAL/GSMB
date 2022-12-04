@@ -17,6 +17,7 @@ int main()
         admin();
         break;
     case 2:
+       //student();
         break;
     case 3:
         exit(0);

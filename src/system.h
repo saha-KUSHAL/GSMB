@@ -14,8 +14,9 @@ struct details
 }det;
 void c_printf(char s[]);
 void admin();
+// void student();
 enum state login();//login function
-void create_login();
+void login();
 bool mt_file(char s[50]);
 
 
