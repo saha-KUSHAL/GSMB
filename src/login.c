@@ -1,5 +1,4 @@
 #include "system.h"
-enum state test;
 
 struct entered_data
 {
@@ -7,35 +6,46 @@ struct entered_data
     char id[20];
 };
 
-int login()
+enum state login()
 {
-    struct entered_data v;
-    struct entered_data *input = &v;
+    struct entered_data *input;
+    input = (struct entered_data *)malloc(sizeof(struct entered_data));
 
-    int check = fail;
     FILE *fp;
-    printf("Enter user name:");
-    gets(input->id);
-    printf("Enter password:");
-    scanf("%d", &input->password);
 
     fp = fopen("/files/user.bin", "r");
-    fread(&log, sizeof(log), 1, fp);
-    while (!feof(fp))
+    fseek(fp, 0, 2);
+    if (ftell(fp) == 0)//cheking if there is data or not;
     {
-        if (input->id == log.id)
+        printf("\nNo Admin Found.");
+    }
+    else
+    {
+        printf("Enter user name:");
+        gets(input->id);
+        printf("Enter password:");
+        scanf("%ld", &input->password);
+
+        fread(&det, sizeof(det), 1, fp);
+        rewind(fp);
+        while (!feof(fp))
         {
-            if (input->password == log.password)
+            if (input->id == det.id)
             {
-                printf("\nAuthorization Sucessfull.");
-                check = pass;
+                if (input->password == det.password)
+                {
+                    printf("\nAuthorization Sucessfull.");
+                    return pass;
+                }
+                else
+                {
+                    printf("\nPassword didn't match.");
+                    return fail;
+                }
             }
             else
-                printf("\nPassword didn't match.");
+                fread(&det, sizeof(det), 1, fp);
         }
-        else
-            fread(&log, sizeof(log), 1, fp);
     }
     fclose(fp);
-    return check;
 }

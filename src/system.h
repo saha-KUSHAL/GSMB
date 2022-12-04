@@ -5,14 +5,15 @@
 #include <string.h>
 #include <stdlib.h>
 
-typedef enum state{fail,pass};
+typedef enum state{fail,pass}test;
 struct details
 {
     long int password;
     char id[20];
-} log;
+}det;
 void c_printf(char s[]);
 void admin();
+enum state login();//login function
 
 
 #endif
