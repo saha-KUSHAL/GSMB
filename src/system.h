@@ -7,6 +7,7 @@
 
 
 void c_printf(char s[]);
+void admin();
 
 
 #endif

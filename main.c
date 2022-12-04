@@ -1,19 +1,26 @@
 #include "src/system.h"
 int main()
 {
+    int ch;
     c_printf("Gitaram Student Management BUS\n");
-    while(1)
-    
+    c_printf("------------------------------");
+    printf("\nLogin as:");
+    printf("\n----------\t\t\t------------\t\t\t---------");
+    printf("\n|(1)admin|\t\t\t|(2)student|\t\t\t|(0)Exit|");
+    printf("\n----------\t\t\t------------\t\t\t---------");
+    printf("\n\nEnter your choice: ");
+    scanf("%d", &ch);
+
+    switch (ch)
     {
-        int ch;
-        printf("\tEnter 0 to exit.");
-        scanf("%d",&ch);
-        switch (ch){
-            case 0: exit(0);
-            break;
-            default: c_printf("\n\tEnter any inputs between 0 to ");
-        }
-        
+    case 1:
+        admin();
+        break;
+    case 2:
+        break;
+    case 3:
+        exit(0);
     }
+    scanf("%d", &ch); // holding the screen;
     return (0);
 }
