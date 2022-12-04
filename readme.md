@@ -1,0 +1,1 @@
+![this is GSMB logo](/files/GSMB_Logo.svg)
