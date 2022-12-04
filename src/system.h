@@ -5,5 +5,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 void c_printf(char s[]);
+
+
 #endif
