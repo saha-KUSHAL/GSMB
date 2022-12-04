@@ -8,8 +8,8 @@
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
+				"-Wall",
 				"${workspaceFolder}/*.c",
-				"${workspaceFolder}/*.h",
 				"${workspaceFolder}/src/*.c",
 				"${workspaceFolder}/src/*.h",
 				"-o",
