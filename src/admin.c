@@ -1,4 +1,5 @@
 #include "system.h"
+
 void admin()
 {
     enum state status;
