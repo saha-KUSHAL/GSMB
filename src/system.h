@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef enum state{fail,pass}test;
 struct details
@@ -14,6 +15,9 @@ struct details
 void c_printf(char s[]);
 void admin();
 enum state login();//login function
+void create_login();
+bool mt_file(char s[50]);
+
 
 
 #endif

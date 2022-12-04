@@ -5,6 +5,20 @@ struct entered_data
     long int password;
     char id[20];
 };
+void create_login()
+{
+    FILE *fp;
+    if(mtbool("files/user.bin"))
+    {
+        fp=fopen("/files/user.bin","w");
+    }
+    else{
+        fp=fopen("/files/user.bin","a");
+
+    }
+
+
+}
 
 enum state login()
 {
@@ -14,10 +28,11 @@ enum state login()
     FILE *fp;
 
     fp = fopen("/files/user.bin", "r");
-    fseek(fp, 0, 2);
-    if (ftell(fp) == 0)//cheking if there is data or not;
+    if (mtbool("files/user.bin"))//cheking if there is data or not;
     {
         printf("\nNo Admin Found.");
+        printf("\nCreate an admin:");
+        create_login();
     }
     else
     {
@@ -48,4 +63,5 @@ enum state login()
         }
     }
     fclose(fp);
+    free(input);
 }
