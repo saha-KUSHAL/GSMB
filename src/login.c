@@ -57,9 +57,9 @@ test login()
         fflush(stdin);
         fgets(input->password, 20, stdin);
 
+        rewind(fp);
         fread(data, sizeof(details), 1, fp);
 
-        rewind(fp);
         while (!feof(fp))
         {
             if (input->id == data->id)
