@@ -62,9 +62,9 @@ test login()
 
         while (!feof(fp))
         {
-            if (input->id == data->id)
+            if (strcmp(input->id,data->id)==0)
             {
-                if (input->password == data->password)
+                if (strcmp(input->password,data->password)==0)
                 {
                     printf("\nAuthorization Sucessfull.");
                     return pass;
@@ -80,6 +80,7 @@ test login()
                 fread(data, sizeof(details), 1, fp);
         }
         free(input);
+        free(data);
         fclose(fp);
     }
     if (flag == 0)
