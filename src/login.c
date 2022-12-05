@@ -18,13 +18,13 @@ void create_login()
     details *data; // pointer variable of details structure
     data = (details *)malloc(sizeof(details));
     FILE *fp;
-    if (mt_file("/files/user.dat"))
+    if (mt_file("files/user.dat"))
     {
-        fp = fopen("/files/user.dat", "w");
+        fp = fopen("files/user.dat", "w");
     }
     else
     {
-        fp = fopen("/files/user.dat", "a");
+        fp = fopen("files/user.dat", "a");
     }
     printf("\nEnter User Name:");
     fflush(stdin);
@@ -38,8 +38,8 @@ void create_login()
 }
 
 test login()
-{
-    int n;
+{   
+    int n,flag=0;
     if (mt_file("files/user.dat")) // cheking if there is data or not;
     {
         printf("\nNo Admin Found.");
@@ -56,10 +56,10 @@ test login()
     else
     {
 
-        details data;
+        details *data;
         entered_data *input = (entered_data *)malloc(sizeof(entered_data));
         
-        FILE *fp = fopen("/files/user.dat", "r");
+        FILE *fp = fopen("files/user.dat", "r");
 
         printf("\nEnter User Name:");
         fflush(stdin);
@@ -69,14 +69,14 @@ test login()
         fflush(stdin);
         fgets(input->password, 20, stdin);
 
-        fread(&data,sizeof(data), 1, fp);
+        fread(data,sizeof(details), 1, fp);
 
         rewind(fp);
         while (!feof(fp))
         {
-            if (input->id == data.id)
+            if (input->id == data->id)
             {
-                if (input->password == data.password)
+                if (input->password == data->password)
                 {
                     printf("\nAuthorization Sucessfull.");
                     return pass;
@@ -88,7 +88,7 @@ test login()
                 }
             }
             else
-                fread(&data, sizeof(data), 1, fp);
+                fread(data, sizeof(details), 1, fp);
         }
         free(input);
         fclose(fp);
