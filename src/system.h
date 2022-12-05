@@ -6,12 +6,16 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef enum state{fail,pass}test;
+typedef enum state
+{
+    fail,
+    pass
+} test;
 
 void c_printf(char s[]);
 void admin();
-test login();//login function
-bool mt_file(char s[]);//function to check a file is empty or not.
+test login();           // login function
+bool mt_file(char s[]); // function to check a file is empty or not.
 typedef struct details
 {
     char id[10];
@@ -24,6 +28,14 @@ typedef struct entered_data
     char password[10];
 } entered_data;
 
-
+void black();
+void red();
+void green();
+void yellow();
+void blue();
+void purple();
+void cyan();
+void white();
+void reset();
 
 #endif

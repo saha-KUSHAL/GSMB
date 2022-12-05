@@ -3,8 +3,10 @@
 void admin()
 {
     if (login() == pass)
-
-        printf("\nlogin funcion Pass");
+    {
+        printf("\n");
+        c_printf("--ADMIN PANEL--");
+    }
     else
         printf("\nFail");
 
