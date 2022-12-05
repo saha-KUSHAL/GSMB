@@ -2,11 +2,11 @@
 
 void admin()
 {
-    enum state status;
-    status = login();
-    if (status == pass)
+    if (login() == pass)
 
-        printf("\nPass");
+        printf("\nlogin funcion Pass");
     else
         printf("\nFail");
+
+    
 }

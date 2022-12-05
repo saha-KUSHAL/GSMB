@@ -6,7 +6,7 @@ void c_printf(char s[])
     int pad = (strlen(s) >= width) ? 0 : (width - strlen(s)) / 2;
     printf("%*.*s%s\n", pad, pad, " ", s);
 }
-bool mt_file(char s[50])
+bool mt_file(char s[])//checks if the file is empty or not
 {
     FILE *fp;
     fp = fopen(s, "r");
@@ -15,4 +15,9 @@ bool mt_file(char s[50])
         return true;
     else
         return false;
+}
+void data_check()//th
+{
+
+
 }

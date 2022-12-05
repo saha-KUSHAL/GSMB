@@ -21,6 +21,7 @@ int main()
         break;
     case 3:
         exit(0);
+        
     }
     scanf("%d", &ch); // holding the screen;
     return (0);
