@@ -1,16 +1,5 @@
 #include "system.h"
 
-typedef struct details
-{
-    char id[10];
-    char password[10];
-} details;
-
-typedef struct entered_data
-{
-    char id[10];
-    char password[10];
-} entered_data;
 
 void create_login()
 {
@@ -38,8 +27,8 @@ void create_login()
 }
 
 test login()
-{   
-    int n,flag=0;
+{
+    int n, flag = 0;
     if (mt_file("files/user.dat")) // cheking if there is data or not;
     {
         printf("\nNo Admin Found.");
@@ -55,10 +44,9 @@ test login()
     }
     else
     {
-
-        details *data;
+        details *data = (details *)malloc(sizeof(details));
         entered_data *input = (entered_data *)malloc(sizeof(entered_data));
-        
+
         FILE *fp = fopen("files/user.dat", "r");
 
         printf("\nEnter User Name:");
@@ -69,7 +57,7 @@ test login()
         fflush(stdin);
         fgets(input->password, 20, stdin);
 
-        fread(data,sizeof(details), 1, fp);
+        fread(data, sizeof(details), 1, fp);
 
         rewind(fp);
         while (!feof(fp))
@@ -86,11 +74,17 @@ test login()
                     printf("\nPassword didn't match.");
                     return fail;
                 }
+                flag = 1;
             }
             else
                 fread(data, sizeof(details), 1, fp);
         }
         free(input);
         fclose(fp);
+    }
+    if (flag == 0)
+    {
+        printf("\nUser not Found");
+        return fail;
     }
 }

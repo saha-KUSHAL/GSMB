@@ -16,8 +16,3 @@ bool mt_file(char s[])//checks if the file is empty or not
     else
         return false;
 }
-void data_check()//th
-{
-
-
-}
