@@ -78,7 +78,7 @@ void student()
     else
     {
         int ch;
-        printf("\nPress 1 to enter Registration no.\nPress 2 for Viee by STREAM and SEMESTER");
+        printf("\nPress 1 to enter Registration no.\nPress 2 for View by STREAM and SEMESTER");
         scanf("%d", &ch);
         switch (ch)
         {
