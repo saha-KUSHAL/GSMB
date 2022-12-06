@@ -57,5 +57,6 @@ void view_data();
 void stream();
 void student();
 void search_student_data();
+void manage_data();
 
 #endif

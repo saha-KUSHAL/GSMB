@@ -19,7 +19,7 @@ void search_student_data(long int no)
     else
     {
         data = (student_data *)malloc(sizeof(student_data));
-        rewind(fp);
+        rewind(fp);  
         fread(data, sizeof(student_data), 1, fp);
         while (!feof(fp))
         {
