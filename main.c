@@ -4,7 +4,7 @@ int main()
     int ch;
     system("COLOR 09");
     c_printf("Gitaram Student Management BUS\n");
-    c_printf("------------------------------");
+    c_printf("...........................................................................");
     red();
     printf("\nLogin as:");
     yellow();

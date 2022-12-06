@@ -28,6 +28,13 @@ typedef struct entered_data
     char password[10];
 } entered_data;
 
+typedef struct stream_data
+{
+    int scount;
+    char sname[10];
+    int sem;
+} stream_data;
+
 void black();
 void red();
 void green();
@@ -37,5 +44,11 @@ void purple();
 void cyan();
 void white();
 void reset();
+void edit_data();
+void view_data();
+void stream();
+void student();
+void view_student_data();
+void search_student_data();
 
 #endif
