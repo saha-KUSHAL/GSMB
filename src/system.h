@@ -34,6 +34,14 @@ typedef struct stream_data
     char sname[10];
     int sem;
 } stream_data;
+typedef struct student_data
+{
+    long int reg_no;
+    char name[50];
+    char stream[10];
+    short int sem;
+} student_data;
+
 
 void black();
 void red();
@@ -48,7 +56,6 @@ void edit_data();
 void view_data();
 void stream();
 void student();
-void view_student_data();
 void search_student_data();
 
 #endif

@@ -78,15 +78,17 @@ void student()
     else
     {
         int ch;
-        printf("\nPress 1 to View Whole data.\nPress 2 to enter Registration no.");
+        printf("\nPress 1 to enter Registration no.\nPress 2 for Viee by STREAM and SEMESTER");
         scanf("%d", &ch);
         switch (ch)
         {
         case 1:
-            view_student_data();
+            long int regno;
+            printf("\nEnter REG. No:");
+            scanf("%ld",&regno);
+            search_student_data(regno);
             break;
         case 2:
-            search_student_data();
             break;
         default:
             red();
