@@ -4,7 +4,7 @@ student_data *data;
 void search_student_data(long int no)
 {
     FILE *fp = fopen("files/student.dat", "r");
-    if (fopen("files/student.dat", "r") == NULL || (!ferror(fp)))
+    if (fopen("files/student.dat", "r") == NULL)
     {
         red();
         printf("\nError!");
@@ -25,13 +25,11 @@ void search_student_data(long int no)
         {
             if (data->reg_no == no)
             {
-                printf("\nReg no.        Name.           Stream         Semester");
-                printf("\n%ld             %s             %s             %d", data->reg_no, data->name, data->stream, data->sem);
+                printf("\nReg no.              Name.           Stream         Semester");
+                printf("\n%12ld           %10s       %4s      %d", data->reg_no, data->name, data->stream, data->sem);
             }
-            else
                 fread(data, sizeof(student_data), 1, fp);
         }
-
         free(data);
     }
     fclose(fp);

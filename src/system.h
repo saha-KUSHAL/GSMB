@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <ctype.h>
 
 typedef enum state
 {
@@ -58,5 +59,6 @@ void stream();
 void student();
 void search_student_data();
 void manage_data();
+void create_data();
 
 #endif

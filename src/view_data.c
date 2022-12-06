@@ -1,36 +1,40 @@
 #include "system.h"
 void view_data()
 {
-    int ch;
+    int ch = 3;
     yellow();
     c_printf("--VIEW DATA--");
-    blue();
-    printf("\n----------\t\t\t------------\t\t\t---------");
-    printf("\n|(1)Streams|\t\t\t|(2)Student|\t\t\t|(0)Exit|");
-    printf("\n----------\t\t\t------------\t\t\t---------");
-    reset();
-    printf("\nEnter your choice:");
-    scanf("%d", &ch);
-    switch (ch)
+    while (ch != 0)
     {
-    case 1:
-        stream();
-        break;
-    case 2:
-        student();
-        break;
-    case 0:
-        exit(0);
+        blue();
+        printf("\n----------\t\t\t------------\t\t\t-----------");
+        printf("\n|(1)Streams|\t\t\t|(2)Student|\t\t\t|(0)Go Back|");
+        printf("\n----------\t\t\t------------\t\t\t------------");
+        reset();
+        printf("\n>");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+        case 1:
+            stream();
+            break;
+        case 2:
+            student();
+            break;
+        case 0:break;
 
-    default:
-        break;
+        default:
+            red();
+            printf("\nWrong Input!");
+            reset();
+        }
     }
 }
 void stream()
 {
     FILE *fp;
-    fp = fopen("files/stream.txt", "r");
-    if (!ferror(fp) && fopen("files/stream.txt", "r") == NULL)
+    fp = fopen("files/stream.dat", "r");
+    if (!ferror(fp) && fopen("files/stream.dat", "r") == NULL)
     {
         red();
         printf("\nERROR!");
@@ -46,6 +50,7 @@ void stream()
     {
         stream_data *data;
         data = (stream_data *)malloc(sizeof(stream_data));
+        fp = fopen("files/student.dat", "r");
         rewind(fp);
         fread(data, sizeof(stream_data), 1, fp);
         while (!feof(fp))
@@ -63,7 +68,7 @@ void student()
 {
     FILE *fp;
     fp = fopen("files/student.dat", "r");
-    if ((!ferror(fp)) && (fopen("files/student.txt", "r") == NULL))
+    if ((fopen("files/student.dat", "r") == NULL))
     {
         red();
         printf("\nERROR!");
@@ -78,14 +83,14 @@ void student()
     else
     {
         int ch;
-        printf("\nPress 1 to enter Registration no.\nPress 2 for View by STREAM and SEMESTER");
+        printf("\nPress 1 to enter Registration no.\nPress 2 for View by STREAM and SEMESTER\n>");
         scanf("%d", &ch);
         switch (ch)
         {
         case 1:
             long int regno;
             printf("\nEnter REG. No:");
-            scanf("%ld",&regno);
+            scanf("%ld", &regno);
             search_student_data(regno);
             break;
         case 2:

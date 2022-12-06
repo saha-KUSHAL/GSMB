@@ -1,6 +1,5 @@
 #include "system.h"
 
-
 void create_login()
 {
 
@@ -28,12 +27,12 @@ void create_login()
 
 test login()
 {
-    int n, flag = 0;
     if (mt_file("files/user.dat")) // cheking if there is data or not;
     {
+        int n;
         printf("\nNo Admin Found.");
         printf("\nCreate an admin:");
-        printf("\nPress 1 to create an admin account.\nPress any key to go back.\n");
+        printf("\nPress 1 to create an admin account.\nPress any key to go back.\n>");
         if (scanf("%d", &n) == 1)
         {
             create_login();
@@ -44,48 +43,57 @@ test login()
     }
     else
     {
+        char ch = 'Y';
         details *data = (details *)malloc(sizeof(details));
         entered_data *input = (entered_data *)malloc(sizeof(entered_data));
 
         FILE *fp = fopen("files/user.dat", "r");
-
-        printf("\nEnter User Name:");
-        fflush(stdin);
-        fgets(input->id, 20, stdin);
-
-        printf("\nEnter Password:");
-        fflush(stdin);
-        fgets(input->password, 20, stdin);
-
-        rewind(fp);
-        fread(data, sizeof(details), 1, fp);
-
-        while (!feof(fp))
+        while (ch != 'N')
         {
-            if (strcmp(input->id,data->id)==0)
+            int flag = 0;
+            printf("\nEnter User Name:");
+            fflush(stdin);
+            fgets(input->id, 20, stdin);
+
+            printf("\nEnter Password:");
+            fflush(stdin);
+            fgets(input->password, 20, stdin);
+            rewind(fp);
+            fread(data, sizeof(details), 1, fp);
+
+            while (!feof(fp) && ch != 'N')
             {
-                if (strcmp(input->password,data->password)==0)
+                if (strcmp(input->id, data->id) == 0 && ch != 'N')
                 {
-                    printf("\nAuthorization Sucessfull.");
-                    return pass;
+                    flag = 1;
+                    if (strcmp(input->password, data->password) == 0)
+                    {
+                        printf("\nAuthorization Sucessfull.");
+                        ch = 'Y';
+                        return pass;
+                    }
+                    else
+                    {
+                        printf("\nPassword didn't match.");
+                        printf("\nWant to retry ? (Y/n)");
+                        fflush(stdin);
+                        ch = toupper(getc(stdin));
+                        break;
+                    }
                 }
                 else
-                {
-                    printf("\nPassword didn't match.");
-                    return fail;
-                }
-                flag = 1;
+                    fread(data, sizeof(details), 1, fp);
             }
-            else
-                fread(data, sizeof(details), 1, fp);
+            if (flag == 0)
+            {
+                red();
+                printf("\nUser not Found.Try again...");
+                reset();
+            }
         }
         free(input);
         free(data);
         fclose(fp);
     }
-    if (flag == 0)
-    {
-        printf("\nUser not Found");
-        return fail;
-    }
+    return fail;
 }
