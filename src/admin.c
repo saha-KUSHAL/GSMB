@@ -17,7 +17,7 @@ void admin()
     printf("\n|(3))Settings|\t\t\t  |(0)Exit|");
     printf("\n--------------\t\t\t  ---------");
     reset();
-    printf("\nEnter your choice:");
+    printf("\n>");
     scanf("%d", &ch);
     switch (ch)
     {

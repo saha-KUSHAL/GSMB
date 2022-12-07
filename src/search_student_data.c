@@ -26,7 +26,7 @@ void search_student_data(long int no)
             if (data->reg_no == no)
             {
                 printf("\nReg no.              Name.           Stream         Semester");
-                printf("\n%12ld           %10s       %4s      %d", data->reg_no, data->name, data->stream, data->sem);
+                printf("\n%12ld           %10s       %4s      %s", data->reg_no, data->name, data->stream, data->sem);
             }
                 fread(data, sizeof(student_data), 1, fp);
         }

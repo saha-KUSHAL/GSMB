@@ -40,11 +40,24 @@ typedef struct student_data
     long int reg_no;
     char name[50];
     char stream[10];
-    short int sem;
+    char sem[2];
 } student_data;
 
+typedef struct marks
+{
+    long int reg;
+    struct subject
+    {
+        short int sub1;
+        short int sub2;
+        short int sub3;
+        short int sub4;
+        short int sub5;
+        short int sub6;
+    } subject;
+} marks;
 
-void black();
+void black(); // text colors
 void red();
 void green();
 void yellow();
@@ -53,6 +66,7 @@ void purple();
 void cyan();
 void white();
 void reset();
+
 void edit_data();
 void view_data();
 void stream();
@@ -60,5 +74,6 @@ void student();
 void search_student_data();
 void manage_data();
 void create_data();
+void add_marks(long int, char[5], char[2]);
 
 #endif
