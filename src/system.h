@@ -39,8 +39,8 @@ typedef struct student_data
 {
     long int reg_no;
     char name[50];
-    char stream[10];
-    char sem[2];
+    char stream[5];
+    char sem[3];
 } student_data;
 
 typedef struct marks
@@ -74,6 +74,6 @@ void student();
 void search_student_data();
 void manage_data();
 void create_data();
-void add_marks(long int, char[5], char[2]);
+void add_marks(long int, char[5], char[3]);
 
 #endif

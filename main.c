@@ -2,7 +2,7 @@
 int main()
 {
     int ch;
-    system("COLOR 09");
+   // system("COLOR 09");
     c_printf("Gitaram Student Management BUS\n");
     c_printf("...........................................................................");
     while (1)

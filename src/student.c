@@ -18,12 +18,12 @@ void create_data()
         printf("Enter Student Name:");
         fflush(stdin);
         fgets(data->name, 50, stdin);
-        printf("\nEnter Student Stream:");
+        printf("Enter Student Stream:");
         fflush(stdin);
-        fgets(data->stream, 10, stdin);
-        printf("\nEnter Student Sem:");
+        fgets(data->stream,5, stdin);
+        printf("Enter Student Sem:");
         fflush(stdin);
-        fgets(data->sem,2,stdin);
+        fgets(data->sem,3,stdin);
         add_marks(data->reg_no,data->stream,data->sem);
         fwrite(data, sizeof(student_data), 1, fp);
         printf("\nDo you want to add more ?(Y/n)");
@@ -33,9 +33,9 @@ void create_data()
     free(data);
     fclose(fp);
 }
-void add_marks(long int reg, char stream[5], char sem[2])
+void add_marks(long int reg, char stream[5], char sem[3])
 {
-    char file_path[] = "files/database/";
+    char file_path[30] = "files/database/";
     FILE *fp;
     marks *mark = (marks *)malloc(sizeof(malloc));
     mark->reg=reg;
@@ -46,29 +46,27 @@ void add_marks(long int reg, char stream[5], char sem[2])
     if (fopen(file_path, "r") == NULL) // checks file already exists or not
         fp = fopen(file_path, "w");
     else
-    {
         fp = fopen(file_path, "a");
-        printf("\nPut 0 if there is no subject");
-        printf("\nEnter Marks of Sub 1:");
-        fflush(stdin);
-        scanf("%hd", &mark->subject.sub1);
-        printf("\nEnter Marks of Sub 2:");
-        fflush(stdin);
-        scanf("%hd", &mark->subject.sub2);
-        printf("\nEnter Marks of Sub 3:");
-        fflush(stdin);
-        scanf("%hd", &mark->subject.sub3);
-        printf("\nEnter Marks of Sub 4:");
-        fflush(stdin);
-        scanf("%hd", &mark->subject.sub4);
-        printf("\nEnter Marks of Sub 5:");
-        fflush(stdin);
-        scanf("%hd", &mark->subject.sub5);
-        printf("\nEnter Marks of Sub 6:");
-        fflush(stdin);
-        scanf("%hd", &mark->subject.sub6);
-        fwrite(mark, sizeof(marks), 1, fp);
-    }
+    printf("\nPut 0 if there is no subject");
+    printf("\nEnter Marks of Sub 1:");
+    fflush(stdin);
+    scanf("%hd", &mark->subject.sub1);
+    printf("Enter Marks of Sub 2:");
+    fflush(stdin);
+    scanf("%hd", &mark->subject.sub2);
+    printf("Enter Marks of Sub 3:");
+    fflush(stdin);
+    scanf("%hd", &mark->subject.sub3);
+    printf("Enter Marks of Sub 4:");
+    fflush(stdin);
+    scanf("%hd", &mark->subject.sub4);
+    printf("Enter Marks of Sub 5:");
+    fflush(stdin);
+    scanf("%hd", &mark->subject.sub5);
+    printf("Enter Marks of Sub 6:");
+    fflush(stdin);
+    scanf("%hd", &mark->subject.sub6);
+    fwrite(mark, sizeof(marks), 1, fp);
     fclose(fp);
     free(mark);
 }
