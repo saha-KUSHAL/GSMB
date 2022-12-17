@@ -1,2 +1,2 @@
 GSMB:
-	gcc -g -Wall *.c src/*.c src/*.h -o gsmb.exe
+	gcc -g -Wall *.c src/*.c src/*.h -o gsmb
