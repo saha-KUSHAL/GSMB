@@ -16,10 +16,10 @@ void create_login()
     }
     printf("\nEnter User Name:");
     fflush(stdin);
-    fgets(data->id, 20, stdin);
+    fgets(data->id, sizeof(data->id), stdin);
     printf("\nCreate a Password:");
     fflush(stdin);
-    fgets(data->password, 20, stdin);
+    fgets(data->password, sizeof(data->password), stdin);
     fwrite(data, sizeof(details), 1, fp);
     fclose(fp);
     free(data);
@@ -53,11 +53,11 @@ test login()
             int flag = 0;
             printf("\nEnter User Name:");
             fflush(stdin);
-            fgets(input->id, 20, stdin);
+            fgets(input->id,sizeof(input->id),stdin);
 
             printf("\nEnter Password:");
             fflush(stdin);
-            fgets(input->password, 20, stdin);
+            fgets(input->id,sizeof(input->password),stdin);
             rewind(fp);
             fread(data, sizeof(details), 1, fp);
 
@@ -66,7 +66,7 @@ test login()
                 if (strcmp(input->id, data->id) == 0 && ch != 'N')
                 {
                     flag = 1;
-                    if (strcmp(input->password, data->password) == 0)
+                    if (strcmp(input->password,data->password) == 0)
                     {
                         printf("\nAuthorization Sucessfull.");
                         ch = 'Y';

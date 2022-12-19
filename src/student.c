@@ -17,13 +17,13 @@ void create_data()
         scanf("%ld", &data->reg_no);
         printf("Enter Student Name:");
         fflush(stdin);
-        fgets(data->name, 50, stdin);
+        fgets(data->name, sizeof(data->name), stdin);
         printf("Enter Student Stream:");
         fflush(stdin);
-        fgets(data->stream,5, stdin);
+        fgets(data->stream,sizeof(data->stream), stdin);
         printf("Enter Student Sem:");
         fflush(stdin);
-        fgets(data->sem,3,stdin);
+        fgets(data->sem,sizeof(data->sem),stdin);
         add_marks(data->reg_no,data->stream,data->sem);
         fwrite(data, sizeof(student_data), 1, fp);
         printf("\nDo you want to add more ?(Y/n)");
