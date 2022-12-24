@@ -1,0 +1,3 @@
+exit(0) not woriking in UNIX
+Unecessary edit_data function(untcaked usage)
+whole sem data print librery is needed.(currently working)

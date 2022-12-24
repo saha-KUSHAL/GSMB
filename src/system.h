@@ -68,12 +68,11 @@ void white();
 void reset();
 
 void edit_data();
-void view_data();
-void stream();
-void student();
-void search_student_data();
-void manage_data();
-void create_data();
+void view_data();//admin func
+void stream();//prints whole sem data
+void search_student_data();//prints student data by reg.no
+void manage_data();//admin func
+void create_data();//admin func
 void add_marks(long int, char[5], char[3]);
 
 #endif

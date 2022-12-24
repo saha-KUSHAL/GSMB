@@ -2,13 +2,14 @@
 void view_data()
 {
     int ch = 3;
+    long int  regno;
     yellow();
     c_printf("--VIEW DATA--");
     while (ch != 0)
     {
         blue();
         printf("\n----------\t\t\t------------\t\t\t-----------");
-        printf("\n|(1)Streams|\t\t\t|(2)Student|\t\t\t|(0)Go Back|");
+        printf("\n|(1)By Stream|\t\t\t|(2)By Reg.No|\t\t\t|(0)Go Back|");
         printf("\n----------\t\t\t------------\t\t\t------------");
         reset();
         printf("\n>");
@@ -19,7 +20,12 @@ void view_data()
             stream();
             break;
         case 2:
-            student();
+	    yellow();
+	    printf("Enter Reg.No"\n");
+	    fflush(stdin);
+	    scanf("%ld",&regno);
+            search_student_data(reg.no);
+	    reset();
             break;
         case 0:break;
 
@@ -33,14 +39,13 @@ void view_data()
 void stream()
 {
     FILE *fp;
-    fp = fopen("files/stream.dat", "r");
-    if (!ferror(fp) && fopen("files/stream.dat", "r") == NULL)
+    if (fopen("files/student.dat", "r") == NULL)
     {
         red();
         printf("\nERROR!");
         reset();
     }
-    else if (mt_file("files/stream.txt"))
+    else if (mt_file("files/student.txt"))
     {
         red();
         printf("\nNo data available!");
@@ -48,22 +53,10 @@ void stream()
     }
     else
     {
-        stream_data *data;
-        data = (stream_data *)malloc(sizeof(stream_data));
-        fp = fopen("files/student.dat", "r");
-        rewind(fp);
-        fread(data, sizeof(stream_data), 1, fp);
-        while (!feof(fp))
-        {
-            printf("\nSerial No.   Stream Name      No. of Semester");
-            printf("\n%d            %s                 %d", data->scount, data->sname, data->sem);
-            fread(data, sizeof(stream_data), 1, fp);
-        }
-
-        free(data);
-        fclose(fp);
+        printf("This is where whole sem data print code is needed\n");
     }
 }
+/*
 void student()
 {
     FILE *fp;
@@ -102,4 +95,4 @@ void student()
         }
     }
     fclose(fp);
-}
+}*/
