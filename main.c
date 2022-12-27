@@ -2,7 +2,7 @@
 int main()
 {
     int ch;
-    c_printf("Gitaram Student Management BUS\n");
+    c_printf("NOTHING BUT C\n");
     c_printf("...........................................................................");
     while (1)
     {
